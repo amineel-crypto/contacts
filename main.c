@@ -8,7 +8,7 @@ int main()
     scanf("%s",&name);
     printf("enter the contact number:\n");
     scanf("%s",&phonenumbr);
-    printf("the contact is ")
+    printf("the contact is ");
 
     return 0;
 }
