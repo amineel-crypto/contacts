@@ -84,10 +84,66 @@ contact *suppremerelem(contact *tete, char nom[],char prenom[],char num[]){
 }
 int main()
 {
-    printf("-----------bonjour----------\n");
+    int choix;
+    int n;
+    char nom[20];
+    char prenom[20];
+    char num[20];
+    contact *contat=NULL;
+    printf("-----------bonjour----------.\n");
     printf("1.----ajouter debut------.\n");
     printf("2.-----ajouter a la fin-------.\n");
     printf("3.----suppremer---.\n");
     printf("4.------affichage----.\n");
+    printf("entrer le choix que vous shoithez:\n");
+    scanf("%d",&choix);
+    switch(choix){
+        case 1:
+        printf("bonjour entrer le nombre des contacts que vous shoithez d'ajouter au debut :\n");
+        scanf("%d",&n);
+        for(int i=0;i<n;i++){
+            printf("entrer les infos de %d contact:\n",i);
+            getchar();
+            printf("entrer le nom de contact : ");
+            fgets(nom,sizeof(nom),stdin);
+            nom[strcspn(nom,"\n")]=0;
+            printf("entrer le prenom de contact : ");
+            fgets(prenom,sizeof(prenom),stdin);
+            prenom[strcspn(prenom,"\n")]=0;
+            printf("entrer le num : ");
+            fgets(num,sizeof(num),stdin);
+            num[strcspn(num,"\n")]=0;
+            contat=ajoutcontact(contat,nom,prenom,num);
+        }
+        break;
+        case 2:
+        printf("bonjour entrer le nombre des contacts que vous shoithez d'ajouter a la fin:\n");
+        scanf("%d",&n);
+        for(int i=0;i<n;i++){
+            printf("entrer les infos de %d contact:\n",i);
+            getchar();
+            printf("entrer le nom de contact : ");
+            fgets(nom,sizeof(nom),stdin);
+            nom[strcspn(nom,"\n")]=0;
+            printf("entrer le prenom de contact : ");
+            fgets(prenom,sizeof(prenom),stdin);
+            prenom[strcspn(prenom,"\n")]=0;
+            printf("entrer le num : ");
+            fgets(num,sizeof(num),stdin);
+            num[strcspn(num,"\n")]=0;
+            contat=ajoutfin(contat,nom,prenom,num);
+        }
+        break;
+        case 3:
+        printf("entrer le nom et le prenom et le num que vous shoithez de supprimer:");
+        fgets(nom,sizeof(nom),stdin);
+        nom[strcspn(nom,"\n")]=0;
+        fgets(prenom,sizeof(prenom),stdin);
+        prenom[strcspn(prenom,"\n")]=0;
+        fgets(num,sizeof(num),stdin);
+        num[strcspn(num,"\n")]=0;
+        contact *newlistecon=suppremerelem(contat,nom,prenom,num);
+        break;
+    }
     return 0;
 }
