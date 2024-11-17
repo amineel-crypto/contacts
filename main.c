@@ -12,6 +12,7 @@ contact *ajoutcontact(contact *tete,char nom[],char prenom[],char num[]){
     if(newcontact==NULL){
         printf("il y'a un erruer.\n");
         exit(1);
+        
     }
     strcpy(newcontact->nom,nom);
     strcpy(newcontact->prenom,prenom);
@@ -93,7 +94,7 @@ int main()
         scanf("%d",&n);
         getchar();
         for(int i=0;i<n;i++){
-            printf("entrer les infos de %d contact:\n",i);
+            printf("entrer les infos de %d contact :\n",i);
             printf("entrer le nom de contact : ");
             fgets(nom,sizeof(nom),stdin);
             nom[strcspn(nom,"\n")]=0;
